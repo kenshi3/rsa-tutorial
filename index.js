@@ -1,9 +1,9 @@
 // p, q, e must be prime
 let a,
     d,
-    e = 7,
-    p = 11,
-    q = 17,
+    e = 17,
+    p = 61,
+    q = 53,
     f,
     plain = 'Hello World!',
     plainASCII = [],
@@ -44,10 +44,36 @@ Euclid_gcd = (a, e) => {
 
 d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
 
+console.log(e)
 console.log(d)
+console.log(f)
 
 for (let i = 0; i < plain.length; i++) {
     plainASCII.push(plain.charCodeAt(i))
 }
-
 console.log(plainASCII.join(''))
+
+for (let i = 0; i < plainASCII.length; i++) {
+    plainASCII[i] = Math.pow(88, e) % f
+}
+console.log(plainASCII.join(''))
+
+for (let i = 0; i < plainASCII.length; i++) {
+    plainASCII[i] = Math.pow(11, d) % f
+}
+// let plain_raw = parseInt(plainASCII.join(''))
+
+// let chiper = Math.pow(plain_raw, e) % f
+
+// let plain2 = Math.pow(plain_raw, d) % f
+let x = bigInt(123)
+    .pow(e)
+    .mod(f)
+
+let y = bigInt(x)
+    .pow(d)
+    .mod(f)
+console.log(y.toJSNumber())
+// let answer = Math.pow(88, e) % f
+// console.log(Math.pow(123, e) % f)
+// console.log(Math.pow(855, d) % f)
