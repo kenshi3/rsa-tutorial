@@ -54,26 +54,17 @@ for (let i = 0; i < plain.length; i++) {
 console.log(plainASCII.join(''))
 
 for (let i = 0; i < plainASCII.length; i++) {
-    plainASCII[i] = Math.pow(88, e) % f
+    let x = bigInt(plainASCII[i])
+        .pow(e)
+        .mod(f)
+    plainASCII[i] = x
 }
 console.log(plainASCII.join(''))
 
 for (let i = 0; i < plainASCII.length; i++) {
-    plainASCII[i] = Math.pow(11, d) % f
+    let y = bigInt(plainASCII[i])
+        .pow(d)
+        .mod(f)
+    plainASCII[i] = y
 }
-// let plain_raw = parseInt(plainASCII.join(''))
-
-// let chiper = Math.pow(plain_raw, e) % f
-
-// let plain2 = Math.pow(plain_raw, d) % f
-let x = bigInt(123)
-    .pow(e)
-    .mod(f)
-
-let y = bigInt(x)
-    .pow(d)
-    .mod(f)
-console.log(y.toJSNumber())
-// let answer = Math.pow(88, e) % f
-// console.log(Math.pow(123, e) % f)
-// console.log(Math.pow(855, d) % f)
+console.log(plainASCII.join(''))
