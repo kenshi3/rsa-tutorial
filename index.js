@@ -53,31 +53,35 @@ console.log(plain)
 for (let i = 0; i < plain.length; i++) {
     plainASCII.push(plain.charCodeAt(i))
 }
+
 console.log(plainASCII.join(''))
 
+let cipherASCII = []
 for (let i = 0; i < plainASCII.length; i++) {
-    let x = bigInt(plainASCII[i])
+    let temp = bigInt(plainASCII[i])
         .pow(e)
         .mod(f)
-    plainASCII[i] = x
+    cipherASCII[i].push(temp)
 }
-console.log(plainASCII.join(''))
+console.log(cipherASCII.join(''))
 
-let test = []
-for (let i = 0; i < plainASCII.length; i++) {
-    test.push(String.fromCharCode(plainASCII[i]))
+let cipher = []
+for (let i = 0; i < cipherASCII.length; i++) {
+    cipher.push(String.fromCharCode(cipherASCII[i]))
 }
-console.log(test.join(''))
+console.log(cipher.join(''))
 
-for (let i = 0; i < plainASCII.length; i++) {
-    let y = bigInt(plainASCII[i])
+let plainASCII_decrypt = []
+for (let i = 0; i < cipherASCII.length; i++) {
+    let temp = bigInt(cipherASCII[i])
         .pow(d)
         .mod(f)
-    plainASCII[i] = y
+    plainASCII_decrypt[i].push(temp)
 }
-console.log(plainASCII.join(''))
+console.log(plainASCII_decrypt.join(''))
 
-for (let i = 0; i < plainASCII.length; i++) {
-    plainASCII[i] = String.fromCharCode(plainASCII[i])
+let plain_decrypt
+for (let i = 0; i < plainASCII_decrypt.length; i++) {
+    plain_decrypt[i] = String.fromCharCode(plainASCII_decrypt[i])
 }
-console.log(plainASCII.join(''))
+console.log(plain_decrypt.join(''))
