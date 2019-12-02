@@ -61,10 +61,21 @@ for (let i = 0; i < plainASCII.length; i++) {
 }
 console.log(plainASCII.join(''))
 
+let test = []
+for (let i = 0; i < plainASCII.length; i++) {
+    test.push(String.fromCharCode(plainASCII[i]))
+}
+console.log(test.join(''))
+
 for (let i = 0; i < plainASCII.length; i++) {
     let y = bigInt(plainASCII[i])
         .pow(d)
         .mod(f)
     plainASCII[i] = y
+}
+console.log(plainASCII.join(''))
+
+for (let i = 0; i < plainASCII.length; i++) {
+    plainASCII[i] = String.fromCharCode(plainASCII[i])
 }
 console.log(plainASCII.join(''))
