@@ -48,6 +48,8 @@ console.log(e)
 console.log(d)
 console.log(f)
 
+console.log(plain)
+
 for (let i = 0; i < plain.length; i++) {
     plainASCII.push(plain.charCodeAt(i))
 }
