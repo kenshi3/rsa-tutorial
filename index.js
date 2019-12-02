@@ -6,8 +6,7 @@ let a,
     q = 53,
     f,
     plain = 'Hello World!',
-    plainASCII = [],
-    cipher
+    plainASCII = []
 
 a = (p - 1) * (q - 1)
 f = p * q
@@ -61,7 +60,7 @@ for (let i = 0; i < plainASCII.length; i++) {
     let temp = bigInt(plainASCII[i])
         .pow(e)
         .mod(f)
-    cipherASCII[i].push(temp)
+    cipherASCII.push(temp)
 }
 console.log(cipherASCII.join(''))
 
@@ -76,12 +75,12 @@ for (let i = 0; i < cipherASCII.length; i++) {
     let temp = bigInt(cipherASCII[i])
         .pow(d)
         .mod(f)
-    plainASCII_decrypt[i].push(temp)
+    plainASCII_decrypt.push(temp)
 }
 console.log(plainASCII_decrypt.join(''))
 
-let plain_decrypt
+let plain_decrypt = []
 for (let i = 0; i < plainASCII_decrypt.length; i++) {
-    plain_decrypt[i] = String.fromCharCode(plainASCII_decrypt[i])
+    plain_decrypt.push(String.fromCharCode(plainASCII_decrypt[i]))
 }
 console.log(plain_decrypt.join(''))
