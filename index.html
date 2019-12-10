@@ -35,6 +35,8 @@
                 <button onclick="getN()">Submit</button>
             </div>
             <!-- Output N{f} & (p-1).(q-1){a} Here -->
+            <div id="f"></div>
+            <div id="a"></div>
             <h3>Step 2: Derived Number (e)</h3>
             <p>Consider number e as a derived number which should be greater than 1 and less than (p-1) and (q-1). The primary condition will be that there should be no common factor of (p-1) and (q-1) except 1</p>
             <div>
@@ -45,12 +47,15 @@
             <h3>Step 3: Public key</h3>
             <p>The specified pair of numbers <b>n</b> and <b>e</b> forms the RSA public key and it is made public.</p>
             <!-- Output Public Key {e}{f} -->
+            <div id="public"></div>
             <h3>Step 4: Private Key</h3>
             <p>Private Key <b>d</b> is calculated from the numbers p, q and e. The mathematical relationship between the numbers is as follows −</p>
             <pre class="">ed = 1 mod (p-1) (q-1)
             </pre>
             <p>The above formula is the basic formula for Extended Euclidean Algorithm, which takes p and q as the input parameters.</p>
             <!-- Output Private Key {d}{f} -->
+            <div id="ed"></div>
+            <div id="private"></div>
             <h2>Encryption Formula</h2>
             <p>Consider a sender who sends the plain text message to someone whose public key is <b>(n,e).</b> To encrypt the plain text message in the given scenario, use the following syntax −</p>
             <pre class="">C = Pe mod n
@@ -61,11 +66,19 @@
                 <button onclick="encrypt()">Submit</button>
             </div>
             <!-- Output plainASCII & cipherASCII & cipher -->
+            <div id="ec"></div>
+            <div id="plainASCII"></div>
+            <div id="cipherASCII"></div>
+            <div id="cipher"></div>
             <h2>Decryption Formula</h2>
             <p>The decryption process is very straightforward and includes analytics for calculation in a systematic approach. Considering receiver<b> C</b> has the private key <b>d</b>, the result modulus will be calculated as −</p>
             <pre class="">Plaintext = Cd mod n
             </pre>
             <!-- Output CipherASCII & plainASCII_decrypt & plain_decrypt -->
+            <div id="ep"></div>
+            <div id="cipherASCII2"></div>
+            <div id="plainASCII_decrypt"></div>
+            <div id="plain_decrypt"></div>
     </body>
     <script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
     <script src="index.js"></script>
