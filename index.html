@@ -31,6 +31,8 @@
                 <br>
                 <label>Q : </label>
                 <input type="number" id="q" style="height: 30px;"></input>
+                <br>
+                <button onclick="getN()">Submit</button>
             </div>
             <!-- Output N{f} & (p-1).(q-1){a} Here -->
             <h3>Step 2: Derived Number (e)</h3>
@@ -38,6 +40,7 @@
             <div>
                 <label>E : </label>
                 <input type="number" id="e" style="height: 30px;"></input>
+                <button onclick="getD()">Submit</button>
             </div>
             <h3>Step 3: Public key</h3>
             <p>The specified pair of numbers <b>n</b> and <b>e</b> forms the RSA public key and it is made public.</p>
@@ -55,6 +58,7 @@
             <div>
                 <label>Plaintext : </label>
                 <input type="text" id="plain" style="height: 30px;"></input>
+                <button onclick="encrypt()">Submit</button>
             </div>
             <!-- Output plainASCII & cipherASCII & cipher -->
             <h2>Decryption Formula</h2>

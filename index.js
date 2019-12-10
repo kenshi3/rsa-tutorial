@@ -1,15 +1,20 @@
 // p, q, e must be prime
 let a,
     d,
-    e = 17,
-    p = 61,
-    q = 53,
+    e = document.getElementById('e').value,
+    p,
+    q,
     f,
-    plain = 'Hello World!',
+    plain = document.getElementById('plain').value,
     plainASCII = []
 
-a = (p - 1) * (q - 1)
-f = p * q
+getN = () => {
+    ;(p = document.getElementById('p').value), (q = document.getElementById('q').value)
+    a = (p - 1) * (q - 1)
+    f = p * q
+    console.log(a)
+    console.log(f)
+}
 
 Euclid_gcd = (a, e) => {
     // a = +a
@@ -41,46 +46,52 @@ Euclid_gcd = (a, e) => {
     return signY * y
 }
 
-d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
-
-console.log(e)
-console.log(d)
-console.log(f)
-
-console.log(plain)
-
-for (let i = 0; i < plain.length; i++) {
-    plainASCII.push(plain.charCodeAt(i))
+getD = () => {
+    e = document.getElementById('e').value
+    d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
+    console.log(e)
+    console.log(d)
+    console.log(f)
 }
 
-console.log(plainASCII.join(''))
+encrypt = () => {
+    plain = document.getElementById('plain').value
 
-let cipherASCII = []
-for (let i = 0; i < plainASCII.length; i++) {
-    let temp = bigInt(plainASCII[i])
-        .pow(e)
-        .mod(f)
-    cipherASCII.push(temp)
-}
-console.log(cipherASCII.join(''))
+    console.log(plain)
 
-let cipher = []
-for (let i = 0; i < cipherASCII.length; i++) {
-    cipher.push(String.fromCharCode(cipherASCII[i]))
-}
-console.log(cipher.join(''))
+    for (let i = 0; i < plain.length; i++) {
+        plainASCII.push(plain.charCodeAt(i))
+    }
 
-let plainASCII_decrypt = []
-for (let i = 0; i < cipherASCII.length; i++) {
-    let temp = bigInt(cipherASCII[i])
-        .pow(d)
-        .mod(f)
-    plainASCII_decrypt.push(temp)
-}
-console.log(plainASCII_decrypt.join(''))
+    console.log(plainASCII.join(''))
 
-let plain_decrypt = []
-for (let i = 0; i < plainASCII_decrypt.length; i++) {
-    plain_decrypt.push(String.fromCharCode(plainASCII_decrypt[i]))
+    let cipherASCII = []
+    for (let i = 0; i < plainASCII.length; i++) {
+        let temp = bigInt(plainASCII[i])
+            .pow(e)
+            .mod(f)
+        cipherASCII.push(temp)
+    }
+    console.log(cipherASCII.join(''))
+
+    let cipher = []
+    for (let i = 0; i < cipherASCII.length; i++) {
+        cipher.push(String.fromCharCode(cipherASCII[i]))
+    }
+    console.log(cipher.join(''))
+
+    let plainASCII_decrypt = []
+    for (let i = 0; i < cipherASCII.length; i++) {
+        let temp = bigInt(cipherASCII[i])
+            .pow(d)
+            .mod(f)
+        plainASCII_decrypt.push(temp)
+    }
+    console.log(plainASCII_decrypt.join(''))
+
+    let plain_decrypt = []
+    for (let i = 0; i < plainASCII_decrypt.length; i++) {
+        plain_decrypt.push(String.fromCharCode(plainASCII_decrypt[i]))
+    }
+    console.log(plain_decrypt.join(''))
 }
-console.log(plain_decrypt.join(''))
