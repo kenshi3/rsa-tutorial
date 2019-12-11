@@ -21,16 +21,13 @@ getN = () => {
 }
 
 Euclid_gcd = (a, e) => {
+    let q, r, m, n
     let signX = a < 0 ? -1 : 1,
         signY = e < 0 ? -1 : 1,
         x = 0,
         y = 1,
         u = 1,
         v = 0,
-        q,
-        r,
-        m,
-        n
 
     while (a !== 0) {
         q = Math.floor(e / a)
