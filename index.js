@@ -16,6 +16,7 @@ getN = () => {
         N = 'N | (p.q) : ' + a
         pq = '(p-1).(q-1) : ' + f
     }
+    console.log(N)
     document.getElementById('a').innerHTML = N
     document.getElementById('f').innerHTML = pq
 }
@@ -27,7 +28,7 @@ Euclid_gcd = (a, e) => {
         x = 0,
         y = 1,
         u = 1,
-        v = 0,
+        v = 0
 
     while (a !== 0) {
         q = Math.floor(e / a)
