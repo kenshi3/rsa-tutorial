@@ -27,15 +27,11 @@ Euclid_gcd = (a, e) => {
         x = 0,
         y = 1,
         u = 1,
-<<<<<<< HEAD
         v = 0,
         q,
         r,
         m,
         n
-=======
-        v = 0
->>>>>>> fd1a1c93e5719c6d8cc5780ac8bba35d422a2fa8
 
     while (a !== 0) {
         q = Math.floor(e / a)
