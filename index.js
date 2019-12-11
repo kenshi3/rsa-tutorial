@@ -1,15 +1,4 @@
-let a,
-    d,
-    e,
-    p,
-    q,
-    f,
-    plain,
-    plainASCII = [],
-    plainASCII_decrypt = [],
-    plain_decrypt = [],
-    cipherASCII = [],
-    cipher = []
+let a, d, e, p, q, f, plain
 
 checkPrime = x => {
     let check = bigInt(x).isPrime()
@@ -75,6 +64,9 @@ getKey = () => {
 }
 
 encrypt = () => {
+    let plainASCII = [],
+        cipherASCII = [],
+        cipher = []
     plain = document.getElementById('plain').value
 
     for (let i = 0; i < plain.length; i++) {
@@ -91,10 +83,13 @@ encrypt = () => {
     document.getElementById('plainASCII').innerHTML = plainASCII.join('')
     document.getElementById('cipherASCII').innerHTML = cipherASCII.join('')
     document.getElementById('cipher').innerHTML = cipher.join('')
-    decrypt()
+    decrypt(cipherASCII)
 }
 
-decrypt = () => {
+decrypt = cipherASCII => {
+    let plainASCII_decrypt = [],
+        plain_decrypt = []
+
     for (let i = 0; i < cipherASCII.length; i++) {
         let temp = bigInt(cipherASCII[i])
             .pow(d)
