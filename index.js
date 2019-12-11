@@ -1,21 +1,33 @@
 // p, q, e must be prime
 let a,
     d,
-    e = document.getElementById('e').value,
+    e,
     p,
     q,
     f,
-    plain = document.getElementById('plain').value,
+    plain,
     plainASCII = []
 
+checkPrime = x => {
+    let check = bigInt(x).isPrime()
+    console.log(check)
+    return check
+}
+
 getN = () => {
-    ;(p = document.getElementById('p').value), (q = document.getElementById('q').value)
-    a = (p - 1) * (q - 1)
-    f = p * q
-    console.log(a)
-    console.log(f)
-    document.getElementById('a').innerHTML = 'N | (p.q) : ' + a
-    document.getElementById('f').innerHTML = '(p-1).(q-1) : ' + f
+    p = document.getElementById('p').value
+    q = document.getElementById('q').value
+    if (checkPrime(p) && checkPrime(q)) {
+        a = (p - 1) * (q - 1)
+        f = p * q
+        console.log(a)
+        console.log(f)
+        document.getElementById('a').innerHTML = 'N | (p.q) : ' + a
+        document.getElementById('f').innerHTML = '(p-1).(q-1) : ' + f
+    } else {
+        document.getElementById('a').innerHTML = 'Make Sure to Use Prime Number'
+        document.getElementById('f').innerHTML = ''
+    }
 }
 
 Euclid_gcd = (a, e) => {
@@ -50,13 +62,19 @@ Euclid_gcd = (a, e) => {
 
 getD = () => {
     e = document.getElementById('e').value
-    d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
-    document.getElementById('ed').innerHTML = e + '.' + d + ' = 1 mod ' + a
-    document.getElementById('public').innerHTML = 'public = {' + e + ',' + f + '}'
-    document.getElementById('private').innerHTML = 'private = {' + d + ',' + f + '}'
-    console.log(e)
-    console.log(d)
-    console.log(f)
+    if (checkPrime(e)) {
+        d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
+        document.getElementById('ed').innerHTML = e + '.' + d + ' = 1 mod ' + a
+        document.getElementById('public').innerHTML = 'public = {' + e + ',' + f + '}'
+        document.getElementById('private').innerHTML = 'private = {' + d + ',' + f + '}'
+        console.log(e)
+        console.log(d)
+        console.log(f)
+    } else {
+        document.getElementById('ed').innerHTML = 'Make Sure to Use Prime Number'
+        document.getElementById('public').innerHTML = ''
+        document.getElementById('private').innerHTML = ''
+    }
 }
 
 encrypt = () => {
