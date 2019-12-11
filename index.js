@@ -1,4 +1,3 @@
-// p, q, e must be prime
 let a,
     d,
     e,
@@ -6,34 +5,33 @@ let a,
     q,
     f,
     plain,
-    plainASCII = []
+    plainASCII = [],
+    plainASCII_decrypt = [],
+    plain_decrypt = [],
+    cipherASCII = [],
+    cipher = []
 
 checkPrime = x => {
     let check = bigInt(x).isPrime()
-    console.log(check)
     return check
 }
 
 getN = () => {
+    let N = 'Make Sure to Use Prime Number',
+        pq = ''
     p = document.getElementById('p').value
     q = document.getElementById('q').value
     if (checkPrime(p) && checkPrime(q)) {
         a = (p - 1) * (q - 1)
         f = p * q
-        console.log(a)
-        console.log(f)
-        document.getElementById('a').innerHTML = 'N | (p.q) : ' + a
-        document.getElementById('f').innerHTML = '(p-1).(q-1) : ' + f
-    } else {
-        document.getElementById('a').innerHTML = 'Make Sure to Use Prime Number'
-        document.getElementById('f').innerHTML = ''
+        N = 'N | (p.q) : ' + a
+        pq = '(p-1).(q-1) : ' + f
     }
+    document.getElementById('a').innerHTML = N
+    document.getElementById('f').innerHTML = pq
 }
 
 Euclid_gcd = (a, e) => {
-    // a = +a
-    // e = +e
-
     let signX = a < 0 ? -1 : 1,
         signY = e < 0 ? -1 : 1,
         x = 0,
@@ -60,70 +58,53 @@ Euclid_gcd = (a, e) => {
     return signY * y
 }
 
-getD = () => {
+getKey = () => {
+    let ed = 'Make Sure to Use Prime Number',
+        public = '',
+        private = ''
     e = document.getElementById('e').value
     if (checkPrime(e)) {
         d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
-        document.getElementById('ed').innerHTML = e + '.' + d + ' = 1 mod ' + a
-        document.getElementById('public').innerHTML = 'public = {' + e + ',' + f + '}'
-        document.getElementById('private').innerHTML = 'private = {' + d + ',' + f + '}'
-        console.log(e)
-        console.log(d)
-        console.log(f)
-    } else {
-        document.getElementById('ed').innerHTML = 'Make Sure to Use Prime Number'
-        document.getElementById('public').innerHTML = ''
-        document.getElementById('private').innerHTML = ''
+        ed = e + '.' + d + ' = 1 mod ' + a
+        public = 'public = {' + e + ',' + f + '}'
+        private = 'private = {' + d + ',' + f + '}'
     }
+    document.getElementById('ed').innerHTML = ed
+    document.getElementById('public').innerHTML = public
+    document.getElementById('private').innerHTML = private
 }
 
 encrypt = () => {
     plain = document.getElementById('plain').value
 
-    console.log(plain)
-
     for (let i = 0; i < plain.length; i++) {
         plainASCII.push(plain.charCodeAt(i))
-    }
-
-    console.log(plainASCII.join(''))
-
-    let cipherASCII = []
-    for (let i = 0; i < plainASCII.length; i++) {
         let temp = bigInt(plainASCII[i])
             .pow(e)
             .mod(f)
         cipherASCII.push(temp)
-    }
-    console.log(cipherASCII.join(''))
-
-    let cipher = []
-    for (let i = 0; i < cipherASCII.length; i++) {
         cipher.push(String.fromCharCode(cipherASCII[i]))
     }
-    console.log(cipher.join(''))
 
-    let plainASCII_decrypt = []
+    document.getElementById('ec').innerHTML = 'Cipher = Plain^' + e + ' mod ' + f
+
+    document.getElementById('plainASCII').innerHTML = plainASCII.join('')
+    document.getElementById('cipherASCII').innerHTML = cipherASCII.join('')
+    document.getElementById('cipher').innerHTML = cipher.join('')
+    decrypt()
+}
+
+decrypt = () => {
     for (let i = 0; i < cipherASCII.length; i++) {
         let temp = bigInt(cipherASCII[i])
             .pow(d)
             .mod(f)
         plainASCII_decrypt.push(temp)
-    }
-    console.log(plainASCII_decrypt.join(''))
-
-    let plain_decrypt = []
-    for (let i = 0; i < plainASCII_decrypt.length; i++) {
         plain_decrypt.push(String.fromCharCode(plainASCII_decrypt[i]))
     }
-    console.log(plain_decrypt.join(''))
 
-    document.getElementById('ec').innerHTML = 'Cipher = Plain^' + e + ' mod ' + f
     document.getElementById('ep').innerHTML = 'Plain = Cipher^' + d + ' mod ' + f
 
-    document.getElementById('plainASCII').innerHTML = plainASCII.join('')
-    document.getElementById('cipherASCII').innerHTML = cipherASCII.join('')
-    document.getElementById('cipher').innerHTML = cipher.join('')
     document.getElementById('cipherASCII2').innerHTML = cipherASCII.join('')
     document.getElementById('plainASCII_decrypt').innerHTML = plainASCII_decrypt.join('')
     document.getElementById('plain_decrypt').innerHTML = plain_decrypt.join('')
