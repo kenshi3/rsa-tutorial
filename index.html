@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Final Network Security</title>
         <link rel="stylesheet" href="materialize/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <div style="height: 2rem;" id="step0"></div>
@@ -21,7 +22,9 @@
                 <li class="collection-item">The integers used by this method are sufficiently large making it difficult to solve.</li>
                 <li class="collection-item">There are two sets of keys in this algorithm: private key and public key.</li>
             </ul>
-            <a href="#step1">Continue</a>
+            <div class="center">
+                <a href="#step1" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
+            </div>
             <br>
             <p>You will have to go through the following steps to work on RSA algorithm :</p>
             <hr>
@@ -45,7 +48,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a class="waves-effect waves-light btn" onclick="getN()">Submit</a>
+                        <a class="waves-effect waves-light btn" onclick="getN()">Submit
+                            <i class="material-icons right">send</i>
+                        </a>
                     </div>
                 </div>
                 <div class="col s6">
@@ -55,7 +60,11 @@
                     <h5 id="a"></h5>
                 </div>
             </div>
-            <a href="#step0">Back</a><a href="#step2">Continue</a>
+            <div class="center">
+                <a style="margin-right: 15rem;" href="#step0" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
+                <a style="margin-left: 15rem;" href="#step2" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
+            </div>
+            <div style="height: 2rem;"></div>
             <div style="height: 4rem;" id="step2"></div>
             <h3>Step 2: Derived Number (e)</h3>
             <p>Consider number e as a derived number which should be greater than 1 and less than (p-1) and (q-1). The primary condition will be that there should be no common factor of (p-1) and (q-1) except 1 :</p>
@@ -68,7 +77,9 @@
                         </div>
                     </div>
                 </div>
-                <a class="waves-effect waves-light btn" onclick="getKey()">Submit</a>
+                <a class="waves-effect waves-light btn" onclick="getKey()">Submit
+                    <i class="material-icons right">send</i>
+                </a>
             </div>
             <!-- <div>
                 <label>E : </label>
@@ -80,7 +91,11 @@
             <!-- Output Public Key {e}{f} -->
             <h5><strong>Result :</strong></h5>
             <h5 id="public"></h5>
-            <a href="#step1">Back</a><a href="#step4">Continue</a>
+            <div class="center">
+                <a style="margin-right: 15rem;" href="#step1" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
+                <a style="margin-left: 15rem;" href="#step4" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
+            </div>
+            <div style="height: 2rem;"></div>
             <div style="height: 10rem;" id="step4"></div>
             <h3>Step 4: Private Key</h3>
             <p>Private Key <b>d</b> is calculated from the numbers p, q and e. The mathematical relationship between the numbers is as follows −</p>
@@ -90,7 +105,10 @@
             <h5><strong>Result :</strong></h5>
             <h5 id="ed"></h5>
             <h5 id="private"></h5>
-            <a href="#step2">Back</a><a href="#encrypt">Continue</a>
+            <div class="center">
+                <a style="margin-right: 15rem;" href="#step2" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
+                <a style="margin-left: 15rem;" href="#encrypt" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
+            </div>
             <div style="height: 10rem;"></div>
             <div style="height: 5rem;" id="encrypt"></div>
             <h2>Encryption Formula</h2>
@@ -106,7 +124,9 @@
                             <label for=Plaintext>Plaintext : </label>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn" onclick="encrypt()">Submit</a>
+                    <a class="waves-effect waves-light btn" onclick="encrypt()">Submit
+                        <i class="material-icons right">send</i>
+                    </a>
                 </div>
                 <div class="col s4">
                     <!-- Output plainASCII & cipherASCII & cipher -->
@@ -115,8 +135,12 @@
                     <h5>Result : </h5><p id="cipher"></p>
                 </div>
             </div>
-            <a href="#step2">Back</a><a href="#dencrypt">Continue</a>
-            <div style="height: 8rem;" id="dencrypt"></div>
+            <div class="center">
+                <a style="margin-right: 15rem;" href="#step4" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
+                <a style="margin-left: 15rem;" href="#dencrypt" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
+            </div>
+            <div style="height: 5rem;"></div>
+            <div style="height: 10rem;" id="dencrypt"></div>
             <h2>Decryption Formula</h2>
             <p>The decryption process is very straightforward and includes analytics for calculation in a systematic approach. Considering receiver<b> C</b> has the private key <b>d</b>, the result modulus will be calculated as −</p>
             <div class="row" >
@@ -134,7 +158,9 @@
                     <p id="plain_decrypt"></p>
                 </div>
             </div>
-            <a href="#encrypt">Back</a>
+            <div class="center">
+                <a href="#encrypt" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
+            </div>
             <div style="height: 20rem;"></div>
     </body>
     <script src="materialize/js/materialize.min.js"></script>
