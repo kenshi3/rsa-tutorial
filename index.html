@@ -7,6 +7,12 @@
         <title>Final Network Security</title>
         <link rel="stylesheet" href="materialize/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            sup{
+                vertical-align: super;
+                font-size: smaller;
+            }
+        </style>
     </head>
     <body>
         <div style="height: 2rem;" id="step0"></div>
@@ -116,7 +122,7 @@
             <br>
             <div class="row" >
                 <div class="col s8">
-                    <h4><strong> Cipher = Plain^e mod n </strong></h4>
+                    <h4><strong> Cipher = Plain<sup>e</sup> mod n </strong></h4>
                     <h4 id="ec"></h4>
                     <div class="row">
                         <div class="input-field col s6">
@@ -145,7 +151,7 @@
             <p>The decryption process is very straightforward and includes analytics for calculation in a systematic approach. Considering receiver<b> C</b> has the private key <b>d</b>, the result modulus will be calculated as −</p>
             <div class="row" >
                 <div class="col s8">
-                    <h4><strong> Plain = Cipher^d mod n </strong></h4>
+                    <h4><strong> Plain = Cipher<sup>d</sup> mod n </strong></h4>
                     <h4 id="ep"></h4>
                 </div>
                 <div class="col s4">
