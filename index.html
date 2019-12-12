@@ -83,11 +83,12 @@
             <h4><strong> ed = 1 mod (P-1) (Q-1) </strong></h4>
             <p>The above formula is the basic formula for Extended Euclidean Algorithm, which takes p and q as the input parameters.</p>
             <!-- Output Private Key {d}{f} -->
-            <div id="ed"></div>
-            <div id="private"></div>
+            <h5><strong>Result :</strong></h5>
+            <h5 id="ed"></h5>
+            <h5 id="private"></h5>
             <h2>Encryption Formula</h2>
             <p>Consider a sender who sends the plain text message to someone whose public key is <b>(n,e).</b> To encrypt the plain text message in the given scenario, use the following syntax −</p>
-            <h4><strong> C = Pe mod n </strong></h4>
+            <h4><strong> C = P^e mod n </strong></h4>
             <br>
             <div class="row" >
                 <div class="col s12">
@@ -106,7 +107,7 @@
                 <button onclick="encrypt()">Submit</button>
             </div> -->
             <!-- Output plainASCII & cipherASCII & cipher -->
-            <p id="ec"></p>
+            <h4 id="ec"></h4>
             <h5>Plain ASCII : </h5>
             <p id="plainASCII"></p>
             <h5>Cipher ASCII : </h5>
@@ -115,9 +116,9 @@
             <p id="cipher"></p>
             <h2>Decryption Formula</h2>
             <p>The decryption process is very straightforward and includes analytics for calculation in a systematic approach. Considering receiver<b> C</b> has the private key <b>d</b>, the result modulus will be calculated as −</p>
-            <h4><strong> Plaintext = Cd mod n </strong></h4>
+            <h4><strong> Plaintext = C^d mod n </strong></h4>
             <!-- Output CipherASCII & plainASCII_decrypt & plain_decrypt -->
-            <p id="ep"></p>
+            <h4 id="ep"></h4>
             <h5>Cipher ASCII : </h5>
             <p id="cipherASCII2"></p>
             <h5>Plain ASCII : </h5>
