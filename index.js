@@ -6,7 +6,7 @@ checkPrime = x => {
 }
 
 getN = () => {
-    let N = 'Make Sure to Use Prime Number',
+    let N = '<red>Make Sure to Use Prime Number</red>',
         pq = ''
     p = document.getElementById('p').value
     q = document.getElementById('q').value
@@ -53,7 +53,7 @@ Euclid_gcd = (a, e) => {
 
 getKey = () => {
     let ed = '',
-        public = 'GCD is not 1.. Choose another value for e',
+        public = '<red>GCD is not 1.. Choose another value for e</red>',
         private = '',
         temp
     e = document.getElementById('e').value

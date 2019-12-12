@@ -12,6 +12,9 @@
                 vertical-align: super;
                 font-size: smaller;
             }
+            red{
+                color: red;
+            }
         </style>
     </head>
     <body>
@@ -59,7 +62,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s6" style="color: green;">
                     <!-- Output N{f} & (p-1).(q-1){a} Here -->
                     <h5><strong>Result : </strong></h5>
                     <h5 id="f"></h5>
@@ -95,8 +98,10 @@
             <h3>Step 3: Public key</h3>
             <p>The specified pair of numbers <b>n</b> and <b>e</b> forms the RSA public key and it is made public.</p>
             <!-- Output Public Key {e}{f} -->
-            <h5><strong>Result :</strong></h5>
-            <h5 id="public"></h5>
+            <div style="color: green;">
+                <h5><strong>Result :</strong></h5>
+                <h5 id="public"></h5>
+            </div>
             <div class="center">
                 <a style="margin-right: 15rem;" href="#step1" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
                 <a style="margin-left: 15rem;" href="#step4" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
@@ -108,9 +113,11 @@
             <h4><strong> ed = 1 mod φ(n) </strong></h4>
             <p>The above formula is the basic formula for Extended Euclidean Algorithm, which takes p and q as the input parameters.</p>
             <!-- Output Private Key {d}{f} -->
-            <h5><strong>Result :</strong></h5>
-            <h5 id="ed"></h5>
-            <h5 id="private"></h5>
+            <div style="color: green;">
+                <h5><strong>Result :</strong></h5>
+                <h5 id="ed"></h5>
+                <h5 id="private"></h5>
+            </div>
             <div class="center">
                 <a style="margin-right: 15rem;" href="#step2" class="btn-floating btn-large yellow"><i class="material-icons">arrow_back</i></a>
                 <a style="margin-left: 15rem;" href="#encrypt" class="btn-floating btn-large green pulse"><i class="material-icons">arrow_forward</i></a>
@@ -134,7 +141,7 @@
                         <i class="material-icons right">send</i>
                     </a>
                 </div>
-                <div class="col s4">
+                <div class="col s4" style="color: green;">
                     <!-- Output plainASCII & cipherASCII & cipher -->
                     <h5>Plain ASCII : </h5><p id="plainASCII"></p>
                     <h5>Cipher ASCII : </h5><p id="cipherASCII"></p>
@@ -154,7 +161,7 @@
                     <h4><strong> Plain = Cipher<sup>d</sup> mod n </strong></h4>
                     <h4 id="ep"></h4>
                 </div>
-                <div class="col s4">
+                <div class="col s4" style="color: green;">
                     <!-- Output CipherASCII & plainASCII_decrypt & plain_decrypt -->
                     <h5>Cipher ASCII : </h5>
                     <p id="cipherASCII2"></p>
