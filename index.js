@@ -13,8 +13,8 @@ getN = () => {
     if (checkPrime(p) && checkPrime(q)) {
         a = (p - 1) * (q - 1)
         f = p * q
-        N = 'N | (P.Q) : ' + a
-        pq = '(P-1).(Q-1) : ' + f
+        N = 'n >> (p.q) = ' + f
+        pq = 'φ(n) >> (p-1).(q-1) = ' + a
     }
     document.getElementById('a').innerHTML = N
     document.getElementById('f').innerHTML = pq
@@ -55,8 +55,8 @@ getKey = () => {
     if (checkPrime(e)) {
         d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
         ed = e + '.' + d + ' = 1 mod ' + a
-        public = 'public = {' + e + ',' + f + '}'
-        private = 'private = {' + d + ',' + f + '}'
+        public = 'Public Key => {' + e + ',' + f + '}'
+        private = 'Private Key => {' + d + ',' + f + '}'
     }
     document.getElementById('ed').innerHTML = ed
     document.getElementById('public').innerHTML = public
