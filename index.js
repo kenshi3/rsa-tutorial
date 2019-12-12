@@ -43,21 +43,29 @@ Euclid_gcd = (a, e) => {
         y = v
         u = m
         v = n
+        console.log(r)
+        console.log(m)
+        console.log(n)
+        console.log(e)
     }
-    return signY * y
+    return e == 1 ? signY * y : false
 }
 
 getKey = () => {
-    let ed = 'Make Sure to Use Prime Number',
-        public = '',
-        private = ''
+    let ed = '',
+        public = 'GCD is not 1.. Choose another value for e',
+        private = '',
+        temp
     e = document.getElementById('e').value
-    if (checkPrime(e)) {
-        d = Euclid_gcd(a, e) > 0 ? Euclid_gcd(a, e) : a + Euclid_gcd(a, e)
+    temp = Euclid_gcd(a, e)
+    if (temp) {
+        d = temp > 0 ? temp : a + temp
         ed = e + '.' + d + ' = 1 mod ' + a
         public = 'Public Key => {' + e + ',' + f + '}'
         private = 'Private Key => {' + d + ',' + f + '}'
     }
+    // document.getElementById('p').setAttribute('class', 'inputnotext')
+    // document.getElementById('p').className = 'validate invalid'
     document.getElementById('ed').innerHTML = ed
     document.getElementById('public').innerHTML = public
     document.getElementById('private').innerHTML = private
