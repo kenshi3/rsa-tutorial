@@ -5,81 +5,127 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Final Network Security</title>
+        <link rel="stylesheet" href="materialize/css/materialize.min.css">
+        <script src="/index.js"></script>
     </head>
     <body>
-        <div class="" style="min-height: 2096px;">
-            <h1>Understanding RSA Algorithm</h1>
+        <div class="container">
+            <h1 class="center" >Understanding RSA Algorithm</h1>
             <hr>
             <br>
-            <p>RSA algorithm is a public key encryption technique and is considered as the most secure way of encryption. It was invented by Rivest, Shamir and Adleman in year 1978 and hence name <b>RSA</b> algorithm.</p>
-            <h2>Algorithm</h2>
-            <p>The RSA algorithm holds the following features −</p>
-            <ul class="">
-                <li><p>RSA algorithm is a popular exponentiation in a finite field over integers including prime numbers.</p></li>
-                <li><p>The integers used by this method are sufficiently large making it difficult to solve.</p></li>
-                <li><p>There are two sets of keys in this algorithm: private key and public key.</p></li>
+            <p class="center" >RSA algorithm is a public key encryption technique and is considered as the most secure way of encryption. It was invented by Rivest, Shamir and Adleman in year 1978 and hence name <b>RSA</b> algorithm.</p>
+            <h2 class="center">Algorithm</h2>
+            <ul class="collection with-header">
+                <li class="collection-header"><h4>The RSA algorithm holds the following features :</h4></li>
+                <li class="collection-item">RSA algorithm is a popular exponentiation in a finite field over integers including prime numbers.</li>
+                <li class="collection-item">The integers used by this method are sufficiently large making it difficult to solve.</li>
+                <li class="collection-item">There are two sets of keys in this algorithm: private key and public key.</li>
             </ul>
-            <p>You will have to go through the following steps to work on RSA algorithm −</p>
+            <br>
+            <p>You will have to go through the following steps to work on RSA algorithm :</p>
             <h3>Step 1: Generate the RSA modulus</h3>
-            <p>The initial procedure begins with selection of two prime numbers namely p and q, and then calculating their product N, as shown −</p>
-            <pre class="">N=p*q
-            </pre>
+            <p>The initial procedure begins with selection of two prime numbers namely p and q, and then calculating their product N, as shown :</p>
+            <h5><strong> N = p x q </strong></h5>
             <p>Here, let N be the specified large number.</p>
-            <div>
-                <label>P : </label>
+            <div class="row" >
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="p" type="number" class="validate">
+                            <label for="p">p : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="q" type="number" class="validate">
+                            <label for="q">q : </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a class="waves-effect waves-light btn" onclick="getN()">Submit</a>
+                    </div>
+                </div>
+                <!-- <label>P : </label>
                 <input type="number" id="p" style="height: 30px;"></input>
                 <br>
                 <label>Q : </label>
                 <input type="number" id="q" style="height: 30px;"></input>
-                <br>
-                <button onclick="getN()">Submit</button>
+                <br> -->
             </div>
             <!-- Output N{f} & (p-1).(q-1){a} Here -->
-            <div id="f"></div>
-            <div id="a"></div>
+            <h5><strong>Result : </strong></h5>
+            <h5 id="f"></h5>
+            <h5 id="a"></h5>
             <h3>Step 2: Derived Number (e)</h3>
-            <p>Consider number e as a derived number which should be greater than 1 and less than (p-1) and (q-1). The primary condition will be that there should be no common factor of (p-1) and (q-1) except 1</p>
-            <div>
+            <p>Consider number e as a derived number which should be greater than 1 and less than (p-1) and (q-1). The primary condition will be that there should be no common factor of (p-1) and (q-1) except 1 :</p>
+            <div class="row" >
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="e" type="number" class="validate">
+                            <label for="e">e : </label>
+                        </div>
+                    </div>
+                </div>
+                <a class="waves-effect waves-light btn" onclick="getKey()">Submit</a>
+            </div>
+            <!-- <div>
                 <label>E : </label>
                 <input type="number" id="e" style="height: 30px;"></input>
                 <button onclick="getKey()">Submit</button>
-            </div>
+            </div> -->
             <h3>Step 3: Public key</h3>
             <p>The specified pair of numbers <b>n</b> and <b>e</b> forms the RSA public key and it is made public.</p>
             <!-- Output Public Key {e}{f} -->
-            <div id="public"></div>
+            <h5><strong>Result :</strong></h5>
+            <h5 id="public"></h5>
             <h3>Step 4: Private Key</h3>
             <p>Private Key <b>d</b> is calculated from the numbers p, q and e. The mathematical relationship between the numbers is as follows −</p>
-            <pre class="">ed = 1 mod (p-1) (q-1)
-            </pre>
+            <h4><strong> ed = 1 mod (P-1) (Q-1) </strong></h4>
             <p>The above formula is the basic formula for Extended Euclidean Algorithm, which takes p and q as the input parameters.</p>
             <!-- Output Private Key {d}{f} -->
             <div id="ed"></div>
             <div id="private"></div>
             <h2>Encryption Formula</h2>
             <p>Consider a sender who sends the plain text message to someone whose public key is <b>(n,e).</b> To encrypt the plain text message in the given scenario, use the following syntax −</p>
-            <pre class="">C = Pe mod n
-            </pre>
-            <div>
+            <h4><strong> C = Pe mod n </strong></h4>
+            <br>
+            <div class="row" >
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="plain" type="text" class="validate">
+                            <label for=Plaintext>Plaintext : </label>
+                        </div>
+                    </div>
+                </div>
+                <a class="waves-effect waves-light btn" onclick="encrypt()">Submit</a>
+            </div>
+            <!-- <div>
                 <label>Plaintext : </label>
                 <input type="text" id="plain" style="height: 30px;"></input>
                 <button onclick="encrypt()">Submit</button>
-            </div>
+            </div> -->
             <!-- Output plainASCII & cipherASCII & cipher -->
-            <div id="ec"></div>
-            <div id="plainASCII"></div>
-            <div id="cipherASCII"></div>
-            <div id="cipher"></div>
+            <p id="ec"></p>
+            <h5>Plain ASCII : </h5>
+            <p id="plainASCII"></p>
+            <h5>Cipher ASCII : </h5>
+            <p id="cipherASCII"></p>
+            <h5>Result : </h5>
+            <p id="cipher"></p>
             <h2>Decryption Formula</h2>
             <p>The decryption process is very straightforward and includes analytics for calculation in a systematic approach. Considering receiver<b> C</b> has the private key <b>d</b>, the result modulus will be calculated as −</p>
-            <pre class="">Plaintext = Cd mod n
-            </pre>
+            <h4><strong> Plaintext = Cd mod n </strong></h4>
             <!-- Output CipherASCII & plainASCII_decrypt & plain_decrypt -->
-            <div id="ep"></div>
-            <div id="cipherASCII2"></div>
-            <div id="plainASCII_decrypt"></div>
-            <div id="plain_decrypt"></div>
+            <p id="ep"></p>
+            <h5>Cipher ASCII : </h5>
+            <p id="cipherASCII2"></p>
+            <h5>Plain ASCII : </h5>
+            <p id="plainASCII_decrypt"></p>
+            <h5>Result : </h5>
+            <p id="plain_decrypt"></p>
     </body>
     <script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
-    <script src="index.js"></script>
+    <script src="materialize/js/materialize.min.js"></script>
 </html>

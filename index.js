@@ -13,25 +13,21 @@ getN = () => {
     if (checkPrime(p) && checkPrime(q)) {
         a = (p - 1) * (q - 1)
         f = p * q
-        N = 'N | (p.q) : ' + a
-        pq = '(p-1).(q-1) : ' + f
+        N = 'N | (P.Q) : ' + a
+        pq = '(P-1).(Q-1) : ' + f
     }
-    console.log(N)
     document.getElementById('a').innerHTML = N
     document.getElementById('f').innerHTML = pq
 }
 
 Euclid_gcd = (a, e) => {
+    let q, r, m, n
     let signX = a < 0 ? -1 : 1,
         signY = e < 0 ? -1 : 1,
         x = 0,
         y = 1,
         u = 1,
-        v = 0,
-        q,
-        r,
-        m,
-        n
+        v = 0
 
     while (a !== 0) {
         q = Math.floor(e / a)
